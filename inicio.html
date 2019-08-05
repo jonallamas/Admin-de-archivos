@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<!-- saved from url=(0023)http://localhost:51756/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio - Dame.Web</title>
+    
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/gijgo.css">
+        <!--<link rel="stylesheet" href="~/css/site.css" />-->
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/arbol.css">
+        <link rel="stylesheet" href="css/font-awesome.min.css">
+    
+    
+</head>
+<!-- 
+
+        Modificación 14/06/2019
+        Si arrastras un elemento, agregar style="overflow: hidden;" al body
+
+ -->
+<body>
+    
+<div class="mainBlock">
+    <div class="mainNavLeft">
+        <ul class="mainIconsNav">
+            <li class="logo"><a href="http://localhost:51756/#"><img src="img/logo.png" alt=""></a></li>
+            <li><a href="http://localhost:51756/#" class="active"><i class="fa fa-cloud" aria-hidden="true"></i></a></li>
+            <li><a href="http://localhost:51756/#"><i class="fa fa-users" aria-hidden="true"></i></a></li>
+        </ul>
+        <ul class="mainIconsNavConfig">
+            <li><a href="http://localhost:51756/#"><i class="fa fa-recycle" aria-hidden="true"></i></a></li>
+            <li><a href="http://localhost:51756/#"><i class="fa fa-cogs" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- Apartado muestra de carpetas -->
+    <div class="mainNavFolders">
+        <div class="foldersHeader">
+            <h6>Mis carpetas <button class="pull-right addFolder">Agregar</button></h6>
+        </div>
+        <div class="foldersContent">
+            <ul id="campanias"><li class="folderUnity "><div class="folderItem"><span class="iconArrow "></span> <span class="iconFolder"><i aria-hidden="true" class="fa fa-folder-o"></i></span> <span title="Árbol" class="folderName">Árbol</span></div> <ul class="" style="display: none;"><li class="item folderUnity "><div class="folderItem"><span class="iconArrow noContent"></span> <span class="iconFolder"><i aria-hidden="true" class="fa fa-folder-o"></i></span> <span title="Hijo 1" class="folderName">Hijo 1</span></div> <!----></li><li class="item folderUnity "><div class="folderItem"><span class="iconArrow noContent"></span> <span class="iconFolder"><i aria-hidden="true" class="fa fa-folder-o"></i></span> <span title="Hijo 2" class="folderName">Hijo 2</span></div> <!----></li><li class="item folderUnity "><div class="folderItem"><span class="iconArrow "></span> <span class="iconFolder"><i aria-hidden="true" class="fa fa-folder-o"></i></span> <span title="H3-Padre" class="folderName">H3-Padre</span></div> <ul class="" style="display: none;"><li class="item folderUnity "><div class="folderItem"><span class="iconArrow "></span> <span class="iconFolder"><i aria-hidden="true" class="fa fa-folder-o"></i></span> <span title="H3-Hijo 1-P" class="folderName">H3-Hijo 1-P</span></div> <ul class="" style="display: none;"><li class="item folderUnity "><div class="folderItem"><span class="iconArrow noContent"></span> <span class="iconFolder"><i aria-hidden="true" class="fa fa-folder-o"></i></span> <span title="H3-h1-1" class="folderName">H3-h1-1</span></div> <!----></li><li class="item folderUnity "><div class="folderItem"><span class="iconArrow noContent"></span> <span class="iconFolder"><i aria-hidden="true" class="fa fa-folder-o"></i></span> <span title="H3-h1-2" class="folderName">H3-h1-2</span></div> <!----></li></ul></li><li class="item folderUnity "><div class="folderItem"><span class="iconArrow noContent"></span> <span class="iconFolder"><i aria-hidden="true" class="fa fa-folder-o"></i></span> <span title="H3-Hijo 2" class="folderName">H3-Hijo 2</span></div> <!----></li><li class="item folderUnity "><div class="folderItem"><span class="iconArrow noContent"></span> <span class="iconFolder"><i aria-hidden="true" class="fa fa-folder-o"></i></span> <span title="H3-Hijo 3" class="folderName">H3-Hijo 3</span></div> <!----></li><li class="item folderUnity "><div class="folderItem"><span class="iconArrow "></span> <span class="iconFolder"><i aria-hidden="true" class="fa fa-folder-o"></i></span> <span title="H3-Hijo 4-P" class="folderName">H3-Hijo 4-P</span></div> <ul class="" style="display: none;"><li class="item folderUnity "><div class="folderItem"><span class="iconArrow noContent"></span> <span class="iconFolder"><i aria-hidden="true" class="fa fa-folder-o"></i></span> <span title="H3-h4-1" class="folderName">H3-h4-1</span></div> <!----></li><li class="item folderUnity "><div class="folderItem"><span class="iconArrow noContent"></span> <span class="iconFolder"><i aria-hidden="true" class="fa fa-folder-o"></i></span> <span title="H3-h4-2" class="folderName">H3-h4-2</span></div> <!----></li></ul></li></ul></li></ul></li></ul>
+        </div>
+    </div>
+
+    <!-- Sección donde se muestran los archivos -->
+
+<style>
+ 
+.mainDetails{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    box-shadow: -10px -5px 50px -15px rgba(0,0,0,0.35);
+    background-color: #fff;
+    height: 100%;
+    z-index: 20;
+    transition-duration: .4s;
+    transform: translateX(400px);
+}
+    .mainDetails .contHead span{
+        display: inline-block;
+        line-height: 40px;
+        padding-left: 20px;
+        background-color: #f5f5f5;
+        width: calc(100% - 40px);
+    }
+
+    .mainDetails .contHead .btnDetailsClose{
+        float: right;
+        width: 40px;
+        color: #333;
+        height: 40px;
+        outline: none !important;
+        border: none;
+        background-color: #e6e6e6;
+    }
+
+    .mainDetails .contBody{
+        padding: 20px;
+    }
+
+        .mainDetails .contBody small{
+            color: #979797;
+            font-weight: 700;
+            position: relative;
+            padding-left: 25px;
+            margin-bottom: 10px;
+            opacity: .7;
+        }
+
+        .mainDetails .contBody small:before{
+            content: "";
+            position: absolute;
+            top: 7px;
+            left: 0;
+            width: 20px;
+            height: 2px;
+            background-color: #979797;
+        }
+
+        .mainDetails .contBody ul{
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+        }
+
+            .mainDetails .contBody ul li{
+                margin-top: 10px;
+            }
+
+                .mainDetails .contBody ul li strong{
+                    color: #4b4b4b;
+                }
+.openDetails{
+    transform: translateX(0px);
+}   
+
+</style>
+
+    <div class="mainDetails">
+        <div class="contHead">
+            <span>Detalles del archivo</span><button type="button" class="btnDetailsClose"><i class="fa fa-times" aria-hidden="true"></i></button>
+        </div>
+        <div class="contBody">
+            <h5><strong>Lorem ipsum dolor sit amet.</strong></h5>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non at dignissimos commodi aut magnam, nisi mollitia, eveniet eius ipsam autem qui eaque quam magni similique adipisci reprehenderit? Id, quibusdam, laborum.</p>
+            <small>Propiedades</small>
+            <ul>
+                <li><strong>Tipo:</strong> Imagen</li>
+                <li><strong>Tamaño:</strong> 4.5mb</li>
+                <li><strong>Resolución:</strong> 1920x1080</li>
+            </ul>
+        </div>
+    </div>
+    <div class="mainContent">
+        <!-- 
+
+                Modificación 14/06/2019
+                Si arrastras un elemento, agregar la clase modalOpen al .zonadropeo
+
+         -->
+        <div class="zonadropeo modal_log">
+            <div class="cont-drop">
+                <img src="img/dropzone.png" class="cont-img-drop" draggable="false">
+                <h4>Arrastra <strong>cualquier</strong> tipo de archivo</h4>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <button type="button" class="btn-cancelar-subida btn-close-modal">Cancelar</button>
+            </div>
+        </div>
+
+        <div class="zonaNuevaCarpeta modal_log">
+            <div class="cont-drop">
+                <h4>Agrega una nueva carpeta</h4>
+                <input type="text" class="input-control" placeholder="Nombre">
+                <button type="button" class="btn-cancelar-subida btn-close-modal">Cancelar</button>
+                <button type="button" class="btnPrincipal btn-cancelar-subida">Crear</button>
+            </div>
+        </div>
+
+        <button type="button" class="btn-plus" id="btnAgregarArchivos"><i class="fa fa-plus" aria-hidden="true"></i></button>
+
+
+        <!-- Navegación superior -->
+
+        <!-- 
+
+                Modificación 14/06/2019
+                Si arrastras un elemento, agregar la clase filter-blur al #navbar
+
+         -->
+        <div class="mainNavTop navTop" id="navbar">
+            <!-- Buscador -->
+            <!-- <form action="" class="boxSearch">
+                <input type="text" placeholder="Buscar">
+                <span class="iconSearch"><i class="fa fa-search" aria-hidden="true"></i></span>
+            </form> -->
+            <!-- Información general del user -->
+            <!-- <ul class="topHead">
+                <li><a href="#" class="userNavTop"><i class="fa fa-user-circle-o" aria-hidden="true"></i> Jonathan</a></li>
+                <li><a href="#" class="btnMenuRight"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
+            </ul> -->
+            <!-- Migas de pan -->
+            <div class="mainBreadcrumbs">
+                <h2>Nombre de la carpeta</h2>
+                <ul class="breadcrumbsList">
+                    <li><a href="http://localhost:51756/#" class="myCloud">Mi nube</a></li>
+                    <li><a href="http://localhost:51756/#">Carpeta general</a></li>
+                </ul>
+
+                <div class="navTopIcons hidden-xs hidden-sm">
+                    <ul>
+                        <li>
+                            <!-- Buscador -->
+                            <form action="http://localhost:51756/" class="boxSearch">
+                                <input type="text" placeholder="Buscar" class="search-box">
+                                <span class="iconSearch"><i class="fa fa-search" aria-hidden="true"></i></span>
+                            </form>
+                            <!-- <div class="search">
+                                <input type="search" class="search-box" />
+                                <span class="search-button">
+                                    <i class="fa fa-search" aria-hidden="true"></i>
+                                </span>
+                            </div> -->
+                        </li>
+                        <!-- <li><a href=""><i class="fa fa-search" aria-hidden="true"></i></a></li> -->
+                        <li><a href="http://localhost:51756/#"><i class="fa fa-user-circle-o" aria-hidden="true"></i></a></li>
+                        <li><a href="http://localhost:51756/#"><i class="fa fa-bars" aria-hidden="true"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- 
+
+                Modificación 14/06/2019
+                Si arrastras un elemento, agregar la clase filter-blur al #archivos
+
+         -->
+        <div id="archivos" class="">
+            <div id="archivosSubir">
+                <!-- <p>Try this example with a directory of images!</p> -->
+                <input type="hidden" id="filesSubir" name="filesSubir[]" multiple=""><br>
+                <output id="filesSubirThumbnails"></output>
+            </div>
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileImage -->
+                <span class="fileBlockBody fileImage" style="background-image: url(&#39;https://pbs.twimg.com/media/D6kUgLKXkAMf0MW.jpg&#39;);"></span>
+                <span class="fileBlockTitle">Imagen.jpg</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileAudio -->
+                <span class="fileBlockBody fileAudio"></span>
+                <span class="fileBlockTitle">Archivo de audio.mp3</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileVideo -->
+                <span class="fileBlockBody fileVideo" style="background-image: url(&#39;https://pbs.twimg.com/media/D6s5N-zWwAIeQTk.jpg&#39;);"></span>
+                <span class="fileBlockTitle">Video.mp4</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileImage -->
+                <span class="fileBlockBody fileImage" style="background-image: url(&#39;https://pbs.twimg.com/media/D6kUgLKXkAMf0MW.jpg&#39;);"></span>
+                <span class="fileBlockTitle">Imagen.jpg</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileAudio -->
+                <span class="fileBlockBody fileAudio"></span>
+                <span class="fileBlockTitle">Archivo de audio.mp3</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileVideo -->
+                <span class="fileBlockBody fileVideo" style="background-image: url(&#39;https://pbs.twimg.com/media/D6s5N-zWwAIeQTk.jpg&#39;);"></span>
+                <span class="fileBlockTitle">Video.mp4</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileImage -->
+                <span class="fileBlockBody fileImage" style="background-image: url(&#39;https://pbs.twimg.com/media/D6kUgLKXkAMf0MW.jpg&#39;);"></span>
+                <span class="fileBlockTitle">Imagen.jpg</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileAudio -->
+                <span class="fileBlockBody fileAudio"></span>
+                <span class="fileBlockTitle">Archivo de audio.mp3</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileVideo -->
+                <span class="fileBlockBody fileVideo" style="background-image: url(&#39;https://pbs.twimg.com/media/D6s5N-zWwAIeQTk.jpg&#39;);"></span>
+                <span class="fileBlockTitle">Video.mp4</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileImage -->
+                <span class="fileBlockBody fileImage" style="background-image: url(&#39;https://pbs.twimg.com/media/D6kUgLKXkAMf0MW.jpg&#39;);"></span>
+                <span class="fileBlockTitle">Imagen.jpg</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileAudio -->
+                <span class="fileBlockBody fileAudio"></span>
+                <span class="fileBlockTitle">Archivo de audio.mp3</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileVideo -->
+                <span class="fileBlockBody fileVideo" style="background-image: url(&#39;https://pbs.twimg.com/media/D6s5N-zWwAIeQTk.jpg&#39;);"></span>
+                <span class="fileBlockTitle">Video.mp4</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileAudio -->
+                <span class="fileBlockBody fileAudio"></span>
+                <span class="fileBlockTitle">Archivo de audio.mp3</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileVideo -->
+                <span class="fileBlockBody fileVideo" style="background-image: url(&#39;https://pbs.twimg.com/media/D6s5N-zWwAIeQTk.jpg&#39;);"></span>
+                <span class="fileBlockTitle">Video.mp4</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileAudio -->
+                <span class="fileBlockBody fileAudio"></span>
+                <span class="fileBlockTitle">Archivo de audio.mp3</span>
+            </a>
+
+            <a href="http://localhost:51756/#" class="blockView">
+                <!-- Si el archivo es imagen agregar fileVideo -->
+                <span class="fileBlockBody fileVideo" style="background-image: url(&#39;https://pbs.twimg.com/media/D6s5N-zWwAIeQTk.jpg&#39;);"></span>
+                <span class="fileBlockTitle">Video.mp4</span>
+            </a>
+
+        </div>
+    </div>
+</div>
+    
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/site.js"></script>
+    
+    
+
+    
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Mostrar detalles del archivo
+        $('.blockView').on('click', function(e){
+            e.preventDefault();
+            $('.mainDetails').toggleClass('openDetails');
+        });
+
+        $('.btnDetailsClose').on('click', function(e){
+            e.preventDefault();
+            $('.mainDetails').removeClass('openDetails');
+        });
+
+        // Botón de agregar archivos
+        $('#btnAgregarArchivos').on('click', function(){
+            $('body').css('overflow', 'hidden');
+            $('#btnAgregarArchivos').addClass('filter-blur');
+            $('#navbar').addClass('filter-blur');
+            $('#archivos').addClass('filter-blur');
+            $('.zonadropeo').addClass('modalOpen');
+        });
+
+        $('.btn-close-modal').on('click', function(){
+            $('body').css('overflow', 'auto');
+            $('#btnAgregarArchivos').removeClass('filter-blur');
+            $('#navbar').removeClass('filter-blur');
+            $('#archivos').removeClass('filter-blur');
+            $(this).parent().parent().removeClass('modalOpen');
+        });
+
+        $('.addFolder').on('click', function(){
+        	$('body').css('overflow', 'hidden');
+            $('#btnAgregarArchivos').addClass('filter-blur');
+            $('#navbar').addClass('filter-blur');
+            $('#archivos').addClass('filter-blur');
+            $('.zonaNuevaCarpeta').addClass('modalOpen');
+        });
+    });
+</script>
+<script>
+    $('.iconSearch').click(function () {
+        if ($(this).parent().hasClass('open')) {
+            $(this).parent().addClass('close');
+            $(this).parent().removeClass('open');
+            $('.search-box').val('');
+        } else {
+            $(this).parent().removeClass('close');
+            $(this).parent().addClass('open');
+            $('.search-box').focus();
+        }
+    });
+</script>
+
+
+
+</body></html>

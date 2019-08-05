@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+
+* {
+    user-select: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    transition-duration: .2s;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
+}
+
+.pull-right{
+    float: right;
+}
+
+.dropzone {
+    border: dashed 2px blue;
+}
+.thumb {
+    height: 75px;
+    border: 1px solid #000;
+    margin: 10px 5px 0 0;
+}
+
+.item {
+    cursor: pointer;
+}
+
+ul {
+    padding-left: 1em;
+    line-height: 1.5em;
+    list-style-type: dot;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+div {
+    resize: none;
+    outline: none;
+}
+
+.contGeneral{
+	width: 100vw;
+	height: 100vh;
+	background: linear-gradient(to top left, #fff, #eeeded);
+}
+
+.contGeneral:before{
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 50%;
+	opacity: .5;
+	height: 100%;
+	background-image: url('../img/bg-dropzone.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: bottom right;
+}
+
+.contLogin{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 400px;
+    height: 350px;
+    padding: 20px;
+    margin: auto;
+	/*background-color: red;*/
+}
+
+.contLogin h6{
+	margin: 15px 0px;
+	font-size: 13px;
+}
+
+.logo{
+	width: 100px;
+	margin: 15px auto;
+	display: block;
+}
+
+.input-control{
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	border: 1px solid #eee;
+	margin-bottom: 15px;
+	padding: 0px 10px;
+	border-radius: 4px;
+	box-shadow: 0 18px 40px -12px rgba(0,0,0,.05);
+	outline: none !important;
+}
+
+.btnPrincipal{
+	background-color: #00C8D5;
+	border-radius: 4px;
+	border: 1px solid #eee;
+	color: #fff;
+	display: block;
+	width: 100%;
+	padding: 12px 20px;
+	outline: none !important;
+	box-shadow: 0 18px 40px -12px rgba(0,200,213,.3);
+	transition-duration: .4s;
+}
+
+.btnPrincipal:hover{
+	box-shadow: 0 18px 40px -12px rgba(0,200,213,.5);
+}
